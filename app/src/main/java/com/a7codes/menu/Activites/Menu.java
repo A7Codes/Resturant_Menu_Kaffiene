@@ -30,6 +30,7 @@ public class Menu extends AppCompatActivity implements AdapterClassB.ItemClickLi
     RecyclerView recB;
     GridView grid;
     TextView viewTitle;
+    TextView viewTitleB;
 
     //Variables
     ArrayList<ClassA> itemsA = new ArrayList<>();
@@ -47,6 +48,9 @@ public class Menu extends AppCompatActivity implements AdapterClassB.ItemClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        //Assign Views
+        Assigner();
+
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         //Initiating & Reading DB
@@ -63,13 +67,21 @@ public class Menu extends AppCompatActivity implements AdapterClassB.ItemClickLi
         setViewTitle();
     }
 
-    void setViewTitle(){
+    void Assigner(){
         viewTitle = findViewById(R.id.menuTitleTv);
+        viewTitleB = findViewById(R.id.menuTitleTvB);
+    }
+
+    void setViewTitle(){
         for (int i = 0; i < itemsA.size(); i++){
             if (itemsA.get(i).get_id() == cb){
                 viewTitle.setText(itemsA.get(i).getTitle());
             }
         }
+    }
+
+    void setViewTitleB(String titleB){
+        viewTitleB.setText(titleB);
     }
 
     void ReadC(){
@@ -146,6 +158,7 @@ public class Menu extends AppCompatActivity implements AdapterClassB.ItemClickLi
 
         } else {
             filterCAccordingToB(itemsBFiltered.get(position).get_id());
+            setViewTitleB(itemsBFiltered.get(position).getTitle());
         }
 
     }

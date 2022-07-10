@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sdRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg4"
+    tools:context=".Activites.SyncData">
+
+    <Button
+        android:id="@+id/sncUploadBtn"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="50dp"
+        android:text="Upload Data"
+        android:textSize="24sp"
+        app:icon="@android:drawable/stat_sys_upload"
+        app:layout_constraintBottom_toTopOf="@+id/sncVerET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/sncDownloadBtn"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="50dp"
+        android:text="Download Data"
+        android:textSize="24sp"
+        app:icon="@android:drawable/stat_sys_download"
+        app:layout_constraintBottom_toTopOf="@+id/sncUploadBtn"
+        app:layout_constraintEnd_toEndOf="@+id/sncUploadBtn"
+        app:layout_constraintStart_toStartOf="@+id/sncUploadBtn" />
+
+    <EditText
+        android:id="@+id/sncVerET"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#8DA3A3A3"
+        android:ems="10"
+        android:hint="Version Number"
+        android:inputType="number"
+        android:numeric="integer"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#EFEFEF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sncUploadBtn"
+        app:layout_constraintStart_toStartOf="@+id/sncUploadBtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

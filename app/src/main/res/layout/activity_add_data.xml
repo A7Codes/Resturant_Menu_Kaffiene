@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4f4f4f"
+    tools:context=".Activites.AddData">
+
+    <EditText
+        android:id="@+id/adIDTv"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#3f3f3f"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ACACAC"
+        app:layout_constraintBottom_toTopOf="@+id/adTitleTv"
+        app:layout_constraintEnd_toEndOf="@+id/adTitleTv"
+        app:layout_constraintStart_toStartOf="@+id/adTitleTv" />
+
+    <EditText
+        android:id="@+id/adTitleTv"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#3f3f3f"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ACACAC"
+        app:layout_constraintBottom_toTopOf="@+id/adParentTv"
+        app:layout_constraintEnd_toEndOf="@+id/adParentTv"
+        app:layout_constraintStart_toStartOf="@+id/adParentTv" />
+
+    <EditText
+        android:id="@+id/adParentTv"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#3f3f3f"
+        android:ems="10"
+        android:hint="Parent"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ACACAC"
+        app:layout_constraintBottom_toTopOf="@+id/adImgTv"
+        app:layout_constraintEnd_toEndOf="@+id/adImgTv"
+        app:layout_constraintStart_toStartOf="@+id/adImgTv" />
+
+    <EditText
+        android:id="@+id/adImgTv"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#3f3f3f"
+        android:ems="10"
+        android:hint="Image"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ACACAC"
+        app:layout_constraintBottom_toTopOf="@+id/adDescTv"
+        app:layout_constraintEnd_toEndOf="@+id/adDescTv"
+        app:layout_constraintStart_toStartOf="@+id/adDescTv" />
+
+    <EditText
+        android:id="@+id/adDescTv"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="100dp"
+        android:background="#3f3f3f"
+        android:ems="10"
+        android:hint="Price"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ACACAC"
+        app:layout_constraintBottom_toTopOf="@+id/adUpdBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/adAddBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="ADD"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:icon="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/adClassRG"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/adIDTv"
+        app:layout_constraintEnd_toEndOf="@+id/adIDTv"
+        app:layout_constraintStart_toStartOf="@+id/adIDTv">
+
+        <RadioButton
+            android:id="@+id/adRbC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="C"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/adRbB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="B"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/adRbA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="A"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/adClassRG"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/logorounded" />
+
+    <Button
+        android:id="@+id/adUpdBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="UPDATE"
+        android:textSize="24sp"
+        app:icon="@android:drawable/ic_popup_sync"
+        app:layout_constraintBottom_toTopOf="@+id/adAddBtn"
+        app:layout_constraintEnd_toEndOf="@+id/adAddBtn"
+        app:layout_constraintStart_toStartOf="@+id/adAddBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

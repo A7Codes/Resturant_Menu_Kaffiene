@@ -7,13 +7,15 @@ public class ClassC {
     int parent;
     String img;
     String DESC;
+    String price;
 
-    public ClassC(int _id, String title, int parent, String img, String DESC) {
+    public ClassC(int _id, String title, int parent, String img, String DESC, String price) {
         this._id = _id;
         this.title = title;
         this.parent = parent;
         this.img = img;
         this.DESC = DESC;
+        this.price = price;
     }
 
     public int get_id() {
@@ -55,4 +57,8 @@ public class ClassC {
     public void setDESC(String DESC) {
         this.DESC = DESC;
     }
+
+    public String getPrice() {return price;}
+
+    public void setPrice(String price) {this.price = price;}
 }

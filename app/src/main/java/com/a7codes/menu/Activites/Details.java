@@ -19,6 +19,7 @@ import com.a7codes.menu.Classes.ImgHelper;
 import com.a7codes.menu.R;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -28,6 +29,7 @@ public class Details extends AppCompatActivity {
     ImageView img;
     TextView title;
     TextView price;
+    TextView ingredients;
 
     //Variables
     int receivedID = 0;
@@ -50,6 +52,7 @@ public class Details extends AppCompatActivity {
         img   = findViewById(R.id.deImg);
         title = findViewById(R.id.deTitle);
         price = findViewById(R.id.dePrice);
+        ingredients = findViewById(R.id.deIng);
     }
 
     private void ReceiveData(){
@@ -70,7 +73,12 @@ public class Details extends AppCompatActivity {
     void fillData(ClassC item){
         img.setImageBitmap(readBitmapImageFromDisk(item.getImg()));
         title.setText(item.getTitle());
-        price.setText(item.getDESC() + " " + "د.ع.");
+        ingredients.setText(item.getDESC());
+
+        DecimalFormat df = new DecimalFormat("#,###,###");
+        String formattedPrice = df.format(Integer.parseInt(item.getPrice()));
+        price.setText(formattedPrice + "  " + "د.ع.");
+
     }
 
     void ReadC(){
@@ -79,12 +87,14 @@ public class Details extends AppCompatActivity {
             Toast.makeText(Details.this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
-                ClassC tmpItem = new ClassC(0, "", 0,"", "");
+                ClassC tmpItem = new ClassC(0, "", 0,"", "", "");
                 tmpItem.set_id(cursor.getInt(0));
                 tmpItem.setTitle(cursor.getString(1));
                 tmpItem.setParent(cursor.getInt(2));
                 tmpItem.setImg(cursor.getString(3));
                 tmpItem.setDESC(cursor.getString(4));
+                tmpItem.setPrice(cursor.getString(5));
+
                 itemsC.add(tmpItem);
             }
         }

@@ -38,6 +38,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String  COLUMN_PARENT_CC      = "parent";
     private static final String  COLUMN_IMG_CC         = "img";
     private static final String  COLUMN_DESC_CC        = "description";
+    private static final String  COLUMN_PRICE_CC       = "price";
 
     public DBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -76,7 +77,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_TITLE_CC  + " TEXT, " +
                 COLUMN_PARENT_CC + " INT, "  +
                 COLUMN_IMG_CC    + " TEXT, " +
-                COLUMN_DESC_CC   + " TEXT "
+                COLUMN_DESC_CC   + " TEXT, " +
+                COLUMN_PRICE_CC  + " TEXT "
                 + " );";
             this.getWritableDatabase().execSQL(CreateQuery);
     }
@@ -113,7 +115,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void AddClassC(int id, String title, int parent, String img, String desc){
+    public void AddClassC(int id, String title, int parent, String img, String desc, String price){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
@@ -122,6 +124,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PARENT_CC, parent);
         cv.put(COLUMN_IMG_CC, img);
         cv.put(COLUMN_DESC_CC, desc);
+        cv.put(COLUMN_PRICE_CC, price);
 
         long result = db.insert(TABLE_NAME_CC, null, cv);
     }
@@ -177,7 +180,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void UpdateRow(int mode, int id, String title, int parent, String img, String price){
+    public void UpdateRow(int mode, int id, String title, int parent, String img,String desc ,String price){
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -206,7 +209,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 cv3.put(COLUMN_TITLE_CC, title);
                 cv3.put(COLUMN_PARENT_CC, parent);
                 cv3.put(COLUMN_IMG_CC, img);
-                cv3.put(COLUMN_DESC_CC, price);
+                cv3.put(COLUMN_DESC_CC, desc);
+                cv3.put(COLUMN_PRICE_CC, price);
                 long result3 = db.update(TABLE_NAME_CC, cv3, "_id=?", new String[]{String.valueOf(id)});
                 break;
 

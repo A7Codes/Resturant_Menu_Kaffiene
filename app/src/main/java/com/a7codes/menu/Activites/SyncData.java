@@ -183,7 +183,7 @@ public class SyncData extends AppCompatActivity {
                                 }
                                 //Class C
                                 if(snap2.getKey().equals("ClassC")){
-                                    ClassC tmpC = new ClassC(0, "", 0, "", "");
+                                    ClassC tmpC = new ClassC(0, "", 0, "", "", "");
                                     for (DataSnapshot snap3 : snap2.getChildren()){
                                         for (DataSnapshot snap4 : snap3.getChildren()){
                                             //Filling A Item
@@ -192,6 +192,7 @@ public class SyncData extends AppCompatActivity {
                                             if (snap4.getKey().equals("parent")){tmpC.setParent(Integer.parseInt(snap4.getValue().toString()));}
                                             if (snap4.getKey().equals("img")){tmpC.setImg(snap4.getValue().toString());}
                                             if (snap4.getKey().equals("desc")){tmpC.setDESC(snap4.getValue().toString());}
+                                            if (snap4.getKey().equals("price")){tmpC.setPrice(snap4.getValue().toString());}
                                             //Filling A Item
                                         }
                                         addDataC(tmpC);
@@ -220,7 +221,7 @@ public class SyncData extends AppCompatActivity {
         db.AddClassB(itemB.get_id(), itemB.getTitle(), itemB.getParent(), itemB.getImg());
     }
     void addDataC(ClassC itemC){
-        db.AddClassC(itemC.get_id(), itemC.getTitle(), itemC.getParent(), itemC.getImg(), itemC.getDESC());
+        db.AddClassC(itemC.get_id(), itemC.getTitle(), itemC.getParent(), itemC.getImg(), itemC.getDESC(), itemC.getPrice());
     }
 
     void ReadC(){
@@ -229,12 +230,13 @@ public class SyncData extends AppCompatActivity {
             Toast.makeText(SyncData.this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
-                ClassC tmpItem = new ClassC(0, "", 0,"", "");
+                ClassC tmpItem = new ClassC(0, "", 0,"", "", "");
                 tmpItem.set_id(cursor.getInt(0));
                 tmpItem.setTitle(cursor.getString(1));
                 tmpItem.setParent(cursor.getInt(2));
                 tmpItem.setImg(cursor.getString(3));
                 tmpItem.setDESC(cursor.getString(4));
+                tmpItem.setPrice(cursor.getString(5));
                 itemsC.add(tmpItem);
             }
         }

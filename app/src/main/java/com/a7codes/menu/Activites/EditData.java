@@ -121,12 +121,13 @@ public class EditData extends AppCompatActivity implements AdapterClassD.ItemCli
             Toast.makeText(EditData.this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
-                ClassC tmpItem = new ClassC(0, "", 0,"", "");
+                ClassC tmpItem = new ClassC(0, "", 0,"", "", "");
                 tmpItem.set_id(cursor.getInt(0));
                 tmpItem.setTitle(cursor.getString(1));
                 tmpItem.setParent(cursor.getInt(2));
                 tmpItem.setImg(cursor.getString(3));
                 tmpItem.setDESC(cursor.getString(4));
+                tmpItem.setPrice(cursor.getString(5));
                 itemsC.add(tmpItem);
             }
         }

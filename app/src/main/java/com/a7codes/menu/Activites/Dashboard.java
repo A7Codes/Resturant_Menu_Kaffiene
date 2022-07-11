@@ -69,15 +69,6 @@ public class Dashboard extends AppCompatActivity implements AdapterClassA.ItemCl
                     CompressImages(itemC.getImg());
                 }
 
-//                for (int i = 0; i< itemsC.size(); i++){
-//                    if(i == 0){
-////                        loadingDialog.StartLoading();
-//                    }
-//                    CompressImages(itemsC.get(i).getImg());
-//                    if (i == itemsC.size() - 1){
-////                        loadingDialog.StopLoading();
-//                    }
-//                }
             }
         }).start();
 
@@ -108,7 +99,6 @@ public class Dashboard extends AppCompatActivity implements AdapterClassA.ItemCl
                 return true;
             }
         });
-
     }
 
     @Override
@@ -161,12 +151,13 @@ public class Dashboard extends AppCompatActivity implements AdapterClassA.ItemCl
             Toast.makeText(Dashboard.this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
-                ClassC tmpItem = new ClassC(0, "", 0,"", "");
+                ClassC tmpItem = new ClassC(0, "", 0,"", "", "");
                 tmpItem.set_id(cursor.getInt(0));
                 tmpItem.setTitle(cursor.getString(1));
                 tmpItem.setParent(cursor.getInt(2));
                 tmpItem.setImg(cursor.getString(3));
                 tmpItem.setDESC(cursor.getString(4));
+                tmpItem.setPrice(cursor.getString(5));
                 itemsC.add(tmpItem);
             }
         }

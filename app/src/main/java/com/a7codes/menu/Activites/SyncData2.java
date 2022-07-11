@@ -113,7 +113,7 @@ public class SyncData2 extends AppCompatActivity {
                 itemsC = new Gson().fromJson(json, new TypeToken<ArrayList<ClassC>>() {}.getType());
                 for (ClassC itemC : itemsC){
                     db.AddClassC(itemC.get_id(), itemC.getTitle(), itemC.getParent(), itemC.getImg(),
-                    itemC.getDESC());
+                            itemC.getDESC(), itemC.getPrice());
                 } }
 
         } catch (Exception ex) {
@@ -185,7 +185,7 @@ public class SyncData2 extends AppCompatActivity {
             // Add to Variable
             for (int i = 0; i < items2.size(); i ++){
                 Rec2Class tmpItem = items2.get(i);
-                ClassC tmpItemC = new ClassC(tmpItem.get_id(), tmpItem.getArTitle(), tmpItem.getParent(), tmpItem.getImg(), tmpItem.getPrice());
+                ClassC tmpItemC = new ClassC(tmpItem.get_id(), tmpItem.getArTitle(), tmpItem.getParent(), tmpItem.getImg(),tmpItem.getDescription(), tmpItem.getPrice());
                 itemsC.add(tmpItemC);
             }
 
@@ -193,7 +193,7 @@ public class SyncData2 extends AppCompatActivity {
             for(ClassC itemC : itemsC){
                 db.AddClassC(itemC.get_id(), itemC.getTitle(),
                             itemC.getParent(), itemC.getImg(),
-                            itemC.getDESC());
+                            itemC.getDESC(), itemC.getPrice());
             }
         }
 
@@ -270,12 +270,13 @@ public class SyncData2 extends AppCompatActivity {
             Toast.makeText(SyncData2.this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
-                ClassC tmpItem = new ClassC(0, "", 0,"", "");
+                ClassC tmpItem = new ClassC(0, "", 0,"", "", "");
                 tmpItem.set_id(cursor.getInt(0));
                 tmpItem.setTitle(cursor.getString(1));
                 tmpItem.setParent(cursor.getInt(2));
                 tmpItem.setImg(cursor.getString(3));
                 tmpItem.setDESC(cursor.getString(4));
+                tmpItem.setPrice(cursor.getString(5));
                 itemsC.add(tmpItem);
             }
         }

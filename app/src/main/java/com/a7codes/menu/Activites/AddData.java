@@ -81,6 +81,8 @@ public class AddData extends AppCompatActivity {
         int parent   = Integer.parseInt(parentTv.getText().toString().trim());
         String img   = imgTv.getText().toString().trim();
         String desc  = descTv.getText().toString().trim();
+        //todo: Add Price Tv
+        String price  = descTv.getText().toString().trim();
         AlertHelper al = new AlertHelper(this);
         db = new DBHelper(this);
 
@@ -109,7 +111,7 @@ public class AddData extends AppCompatActivity {
                 break;
             case 3:
                 if (checkFilled(radChosen) && !idExists()){
-                    db.AddClassC(id, title, parent, img, desc); } else if (idExists()){
+                    db.AddClassC(id, title, parent, img, desc, price); } else if (idExists()){
                     al.MakeAlert("خطأ", "هذا ال ID موجود بالفعل", "حسناً");
                 }
                 break;
@@ -279,7 +281,7 @@ public class AddData extends AppCompatActivity {
             Toast.makeText(AddData.this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
-                ClassC tmpItem = new ClassC(0, "", 0,"", "");
+                ClassC tmpItem = new ClassC(0, "", 0,"", "", "");
                 tmpItem.set_id(cursor.getInt(0));
                 tmpItem.setTitle(cursor.getString(1));
                 tmpItem.setParent(cursor.getInt(2));
@@ -295,6 +297,8 @@ public class AddData extends AppCompatActivity {
         String title = titleTv.getText().toString().trim();
         int parent   = Integer.parseInt(parentTv.getText().toString().trim());
         String img   = imgTv.getText().toString().trim();
+        String desc = descTv.getText().toString().trim();
+        //todo: Add Price tv
         String price = descTv.getText().toString().trim();
 
         int radChosen = 0;
@@ -307,7 +311,7 @@ public class AddData extends AppCompatActivity {
             radChosen = 3;
         }
 
-        db.UpdateRow(radChosen, id, title, parent, img, price);
+        db.UpdateRow(radChosen, id, title, parent, img, desc, price);
 
     }
 

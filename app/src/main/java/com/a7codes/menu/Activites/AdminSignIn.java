@@ -112,6 +112,7 @@ public class AdminSignIn extends AppCompatActivity {
         if (locPass.equals(cloPass)){
             Intent intent = new Intent(AdminSignIn.this, Settings.class);
             startActivity(intent);
+            finish();
         } else {
             mkSnack("Password Is Incorrect Please Try Again");
         }

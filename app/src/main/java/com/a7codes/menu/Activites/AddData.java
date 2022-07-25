@@ -35,6 +35,7 @@ public class AddData extends AppCompatActivity {
     EditText     parentTv;
     EditText        imgTv;
     EditText       descTv;
+    EditText      priceTv;
     Button         addBtn;
     Button         updBtn;
 
@@ -70,6 +71,7 @@ public class AddData extends AppCompatActivity {
         parentTv = findViewById(R.id.adParentTv);
         imgTv = findViewById(R.id.adImgTv);
         descTv = findViewById(R.id.adDescTv);
+        priceTv = findViewById(R.id.adPriceTv);
 
         addBtn = findViewById(R.id.adAddBtn);
         updBtn = findViewById(R.id.adUpdBtn);
@@ -81,8 +83,7 @@ public class AddData extends AppCompatActivity {
         int parent   = Integer.parseInt(parentTv.getText().toString().trim());
         String img   = imgTv.getText().toString().trim();
         String desc  = descTv.getText().toString().trim();
-        //todo: Add Price Tv
-        String price  = descTv.getText().toString().trim();
+        String price  = priceTv.getText().toString().trim();
         AlertHelper al = new AlertHelper(this);
         db = new DBHelper(this);
 
@@ -125,6 +126,7 @@ public class AddData extends AppCompatActivity {
         String parent   = parentTv.getText().toString().trim();
         String img      = imgTv.toString().trim();
         String desc     = descTv.getText().toString().trim();
+        String price    = priceTv.getText().toString().trim();
 
         if (id.equals("") ||
             title.equals("") ||
@@ -232,6 +234,7 @@ public class AddData extends AppCompatActivity {
                             parentTv.setText(String.valueOf(itemsC.get(i).getParent()));
                             imgTv.setText(itemsC.get(i).getImg());
                             descTv.setText(itemsC.get(i).getDESC());
+                            priceTv.setText(itemsC.get(i).getPrice());
                         }
                     }
                     break;
@@ -287,6 +290,7 @@ public class AddData extends AppCompatActivity {
                 tmpItem.setParent(cursor.getInt(2));
                 tmpItem.setImg(cursor.getString(3));
                 tmpItem.setDESC(cursor.getString(4));
+                tmpItem.setPrice(cursor.getString(5));
                 itemsC.add(tmpItem);
             }
         }
@@ -298,8 +302,7 @@ public class AddData extends AppCompatActivity {
         int parent   = Integer.parseInt(parentTv.getText().toString().trim());
         String img   = imgTv.getText().toString().trim();
         String desc = descTv.getText().toString().trim();
-        //todo: Add Price tv
-        String price = descTv.getText().toString().trim();
+        String price = priceTv.getText().toString().trim();
 
         int radChosen = 0;
 
